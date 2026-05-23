@@ -1,0 +1,47 @@
+{
+  "name": "erp-fiscal",
+  "private": true,
+  "version": "1.0.0",
+  "main": "electron/main.js",
+  "scripts": {
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\" \"npm run electron\"",
+    "frontend": "vite --host 0.0.0.0",
+    "backend": "node backend/server.js",
+    "electron": "wait-on http://localhost:5173 && electron .",
+    "build": "vite build",
+    "dist": "npm run build && electron-builder"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "latest",
+    "vite": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "axios": "latest",
+    "cors": "latest",
+    "dotenv": "latest",
+    "express": "latest",
+    "better-sqlite3": "latest",
+    "zod": "latest",
+    "lucide-react": "latest"
+  },
+  "devDependencies": {
+    "concurrently": "latest",
+    "cross-env": "latest",
+    "electron": "latest",
+    "electron-builder": "latest",
+    "wait-on": "latest"
+  },
+  "build": {
+    "appId": "com.erp.fiscal",
+    "productName": "ERP Fiscal",
+    "files": [
+      "dist/**",
+      "electron/**",
+      "backend/**",
+      "package.json"
+    ],
+    "win": {
+      "target": "nsis"
+    }
+  }
+}
