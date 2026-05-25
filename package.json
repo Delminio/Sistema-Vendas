@@ -1,0 +1,43 @@
+{
+  "name": "erp-fiscal-pro-v3",
+  "private": true,
+  "version": "3.0.0",
+  "type": "module",
+  "main": "electron/main.js",
+  "scripts": {
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "frontend": "vite --host 0.0.0.0",
+    "backend": "node backend/server.js",
+    "build": "vite build",
+    "preview": "vite preview",
+    "electron": "electron .",
+    "dist": "npm run build && electron-builder"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "latest",
+    "vite": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "lucide-react": "latest",
+    "recharts": "latest",
+    "axios": "latest",
+    "express": "latest",
+    "cors": "latest",
+    "dotenv": "latest",
+    "pg": "latest",
+    "bcryptjs": "latest",
+    "jsonwebtoken": "latest",
+    "pdfkit": "latest",
+    "xmlbuilder2": "latest",
+    "concurrently": "latest"
+  },
+  "devDependencies": {
+    "electron": "28.3.3",
+    "electron-builder": "latest"
+  },
+  "build": {
+    "appId": "com.erpfiscal.pro",
+    "productName": "ERP Fiscal Pro",
+    "win": { "target": "nsis" }
+  }
+}
